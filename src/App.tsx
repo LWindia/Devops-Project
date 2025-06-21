@@ -7,6 +7,7 @@ import Mentor from './components/Mentor';
 import Pricing from './components/Pricing';
 import Career from './components/Career';
 import Footer from './components/Footer';
+import Whatspp from './components/Whatspp'
 
 const App: FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: FC = () => {
       <Pricing />
       <Career />
       <Footer />
+      <Whatspp/>
     </div>
   );
 }
