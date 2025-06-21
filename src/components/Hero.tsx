@@ -66,16 +66,17 @@ const Hero: FC = () => {
           {/* Main Title Section */}
           <div className="mb-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              {/* Mobile: Stack DevOps on new line, Desktop: Keep inline */}
-              <span className="block sm:inline">The </span>
-              <span className="relative inline-block">
-                <span className="absolute -inset-2 bg-red-600 blur-2xl opacity-80"></span>
-                <span className="relative text-white bg-red-600 px-4 py-2 rounded-lg">
-                  DevOps
+              {/* Mobile: Stack with spacing, Desktop: Keep inline */}
+              <span className="block sm:inline">
+                The{' '}
+                <span className="relative inline-block">
+                  <span className="absolute -inset-2 bg-red-600 blur-2xl opacity-80"></span>
+                  <span className="relative text-white bg-red-600 px-4 py-2 rounded-lg">
+                    DevOps
+                  </span>
                 </span>
               </span>
-              {' '}
-              <span className="sm:inline">Project Series</span>
+              <span className="block sm:inline sm:ml-2 mt-2 sm:mt-0">Project Series</span>
             </h1>
             
             <p className="text-md sm:text-lg md:text-xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
