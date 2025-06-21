@@ -12,7 +12,7 @@ const Pricing: FC = () => {
       }
     } catch (error) {
       console.error('Error opening payment link:', error);
-      window.location.href = 'https://rzp.io/rzp/Edf24fu';
+      window.location.href = 'https://rzp.io/rzp/5E1HrNH';
     }
   };
 
