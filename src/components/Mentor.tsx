@@ -16,7 +16,7 @@ const Mentor: FC = () => {
               </div>
               <img
                 className="rounded-full w-full h-full object-cover border-4 border-red-500 shadow-2xl"
-                src="src/assets/VImalDaga.jpeg"
+                src="/assets/vimalsir.jpeg"
                 alt="Vimal Daga"
               />
             </div>
