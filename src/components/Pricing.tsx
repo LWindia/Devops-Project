@@ -2,16 +2,32 @@ import type { FC } from 'react';
 import { Check, Clock, Phone, Mail, Zap, Award, BookOpen, Users2, ArrowRight, Target, TrendingUp } from 'lucide-react';
 
 const Pricing: FC = () => {
-  const handleBookNow = () => {
+  // Separate function for individual project
+  const handleIndividualProject = () => {
     try {
-      const paymentUrl = 'https://rzp.io/rzp/Edf24fu';
+      const paymentUrl = 'https://rzp.io/rzp/Edf24fu'; // Individual project payment URL
       const newWindow = window.open(paymentUrl, '_blank');
       
       if (!newWindow) {
         window.location.href = paymentUrl;
       }
     } catch (error) {
-      console.error('Error opening payment link:', error);
+      console.error('Error opening individual project payment link:', error);
+      window.location.href = 'https://rzp.io/rzp/Edf24fu ';
+    }
+  };
+
+  // Separate function for complete series
+  const handleCompleteSeries = () => {
+    try {
+      const paymentUrl = 'https://rzp.io/rzp/5E1HrNH'; // Complete series payment URL
+      const newWindow = window.open(paymentUrl, '_blank');
+      
+      if (!newWindow) {
+        window.location.href = paymentUrl;
+      }
+    } catch (error) {
+      console.error('Error opening complete series payment link:', error);
       window.location.href = 'https://rzp.io/rzp/5E1HrNH';
     }
   };
@@ -107,9 +123,9 @@ const Pricing: FC = () => {
                 ))}
               </div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Updated to use handleIndividualProject */}
               <button 
-                onClick={() => handleBookNow()}
+                onClick={handleIndividualProject}
                 className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg"
               >
                 <BookOpen className="w-5 h-5 inline mr-2" />
@@ -164,9 +180,9 @@ const Pricing: FC = () => {
                 ))}
               </div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Updated to use handleCompleteSeries */}
               <button 
-                onClick={() => handleBookNow()}
+                onClick={handleCompleteSeries}
                 className="w-full btn-primary glow-animation text-lg py-4"
               >
                 <Zap className="w-5 h-5 inline mr-2" />
