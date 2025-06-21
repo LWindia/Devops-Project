@@ -72,7 +72,8 @@ const Hero: FC = () => {
                 <span className="relative inline-block">
                   <span className="absolute -inset-2 bg-red-600 blur-2xl opacity-80"></span>
                   <span className="relative text-white bg-red-600 px-4 py-2 rounded-lg">
-                    DevOps
+                    DevOps<br/>
+                    
                   </span>
                 </span>
               </span>
@@ -81,7 +82,7 @@ const Hero: FC = () => {
             
             <p className="text-md sm:text-lg md:text-xl text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
               Learn DevOps + Cloud the Real Way – Through{' '}
-              <span className="text-red-500 font-semibold">6 Full-Scale Projects</span>
+              <span className="text-red-500 font-semibold">7 Full-Scale Projects</span>
             </p>
           </div>
           
