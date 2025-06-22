@@ -1,5 +1,7 @@
 import type { FC } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+
 import { useState, useEffect } from 'react';
 
 // Floating WhatsApp Component
@@ -81,7 +83,7 @@ const FloatingWhatsApp: FC = () => {
         <div className="absolute inset-0 rounded-full bg-green-400 opacity-30 animate-ping"></div>
         
         {/* WhatsApp Icon */}
-        <MessageCircle className="w-6 h-6 relative z-10" />
+          <FaWhatsapp className="w-6 h-6 relative z-10" />
         
         {/* Online Status Indicator */}
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
