@@ -92,13 +92,13 @@ const FloatingWhatsApp: FC = () => {
 // Example of how to use in your main layout/app
 const MainLayout: FC = () => {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="">
       {/* Your existing content */}
-      <div className="p-8">
-        <h1 className="text-4xl font-bold text-white mb-8">DevOps Course</h1>
+      <div className="p-0">
+        {/* <h1 className="text-4xl font-bold text-white mb-8">DevOps Course</h1> */}
         
         {/* Sample content to demonstrate scrolling */}
-        <div className="space-y-8">
+        {/* <div className="space-y-8">
           {[...Array(20)].map((_, i) => (
             <div key={i} className="bg-gray-800 p-6 rounded-lg">
               <h2 className="text-xl font-semibold text-white mb-4">
@@ -110,7 +110,7 @@ const MainLayout: FC = () => {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Floating WhatsApp Button - Add this to your layout */}
