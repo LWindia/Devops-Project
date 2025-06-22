@@ -8,7 +8,8 @@ const FloatingWhatsApp: FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   // Your WhatsApp number (replace with your actual number)
-  const whatsappNumber = "9196537 75333"; // Format: country code + number without +
+  const whatsappNumber = "919653775333"; // ✅ Correct format
+// Format: country code + number without +
   const whatsappMessage = "Hi! I'm interested in the DevOps course. Can you provide more details?";
 
   // Show button after user scrolls a bit
