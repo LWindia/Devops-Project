@@ -20,7 +20,7 @@ const Projects: FC = () => {
       icon: <Code className="w-8 h-8" />,
       color: "bg-blue-500",
       difficulty: "Beginner",
-      duration: "29 June 2025 from 3 pm to 7pm (4hrs)"
+      duration: "6th July 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ const Projects: FC = () => {
       icon: <Package className="w-8 h-8" />,
       color: "bg-green-500",
       difficulty: "Intermediate",
-      duration: "6th July 2025 from 3 pm to 7pm (4hrs)"
+      duration: "13th July 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 3,
@@ -56,7 +56,7 @@ const Projects: FC = () => {
       icon: <Server className="w-8 h-8" />,
       color: "bg-yellow-500",
       difficulty: "Advanced",
-      duration: "13th July 2025 from 3 pm to 7pm (4hrs)"
+      duration: "20th July 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 4,
@@ -74,7 +74,7 @@ const Projects: FC = () => {
       icon: <Code className="w-8 h-8" />,
       color: "bg-purple-500",
       difficulty: "Advanced",
-      duration: "20th July 2025 from 3 pm to 7pm (4hrs)"
+      duration: "27th July 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 5,
@@ -92,7 +92,7 @@ const Projects: FC = () => {
       icon: <TrendingUp className="w-8 h-8" />,
       color: "bg-red-500",
       difficulty: "Advanced",
-      duration: "27th July 2025 from 3 pm to 7pm (4hrs)"
+      duration: "3rd August 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 6,
@@ -110,7 +110,7 @@ const Projects: FC = () => {
       icon: <Zap className="w-8 h-8" />,
       color: "bg-indigo-500",
       difficulty: "Expert",
-      duration: "3rd August 2025 from 3 pm to 7pm (4hrs)"
+      duration: "10th August 2025 from 3 pm to 7pm (4hrs)"
     },
     {
       id: 7,
@@ -132,7 +132,7 @@ const Projects: FC = () => {
       icon: <Award className="w-8 h-8" />,
       color: "bg-pink-500",
       difficulty: "Expert",
-      duration: "10th August 2025 from 3 pm to 7pm (4hrs)"
+      duration: "17th August 2025 from 3 pm to 7pm (4hrs)"
     }
   ];
 
