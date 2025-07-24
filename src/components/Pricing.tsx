@@ -166,7 +166,7 @@ const Pricing: FC = () => {
                   ))}
                 </div>
                 <p className="text-center text-gray-400 text-sm">
-                  Foundation  Development → Deployment → Monitoring → Advanced
+                  Foundation → Development → Deployment → Monitoring → Advanced
                 </p>
               </div>
 
