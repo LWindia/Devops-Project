@@ -20,7 +20,7 @@ const Pricing: FC = () => {
   // Separate function for complete series
   const handleCompleteSeries = () => {
     try {
-      const paymentUrl = 'https://rzp.io/rzp/5E1HrNH'; // Complete series payment URL
+      const paymentUrl = 'https://rzp.io/rzp/bwEIjuL'; // Complete series payment URL
       const newWindow = window.open(paymentUrl, '_blank');
       
       if (!newWindow) {
@@ -28,7 +28,7 @@ const Pricing: FC = () => {
       }
     } catch (error) {
       console.error('Error opening complete series payment link:', error);
-      window.location.href = 'https://rzp.io/rzp/5E1HrNH';
+      window.location.href = 'https://rzp.io/rzp/bwEIjuL';
     }
   };
 
