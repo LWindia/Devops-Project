@@ -5,7 +5,7 @@ const Pricing: FC = () => {
   // Separate function for individual project
   const handleIndividualProject = () => {
     try {
-      const paymentUrl = 'https://rzp.io/rzp/Edf24fu'; // Individual project payment URL
+      const paymentUrl = 'https://rzp.io/rzp/qvXdBmUD'; // Individual project payment URL
       const newWindow = window.open(paymentUrl, '_blank');
       
       if (!newWindow) {
@@ -13,7 +13,7 @@ const Pricing: FC = () => {
       }
     } catch (error) {
       console.error('Error opening individual project payment link:', error);
-      window.location.href = 'https://rzp.io/rzp/Edf24fu ';
+      window.location.href = 'https://rzp.io/rzp/qvXdBmUD ';
     }
   };
 
