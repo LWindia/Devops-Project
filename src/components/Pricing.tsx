@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+
+// Last updated: January 2025 - Enhanced DevOps Project Series
 import { Check, Clock, Phone, Mail, Zap, Award, BookOpen, Users2, ArrowRight, Target, TrendingUp } from 'lucide-react';
 
 const Pricing: FC = () => {
