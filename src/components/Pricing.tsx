@@ -147,7 +147,7 @@ const Pricing: FC = () => {
               {/* Pricing */}
               <div className="text-center mb-8">
                 <div className="text-4xl sm:text-5xl font-bold text-white mb-2">
-                  ₹3,500 <span className="text-lg text-gray-300">+ taxes</span>
+                  ₹5,000 <span className="text-lg text-gray-300">+ taxes</span>
                 </div>
                 <p className="text-red-300 text-lg font-semibold">Best Value - Save 50%</p>
               </div>
