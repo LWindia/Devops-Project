@@ -7,7 +7,7 @@ const Pricing: FC = () => {
   // Separate function for individual project
   const handleIndividualProject = () => {
     try {
-      const paymentUrl = 'https://rzp.io/rzp/qvXdBmUD'; // Individual project payment URL
+      const paymentUrl = 'https://rzp.io/rzp/individual-devops-project'; // Individual project payment URL
       const newWindow = window.open(paymentUrl, '_blank');
       
       if (!newWindow) {
@@ -15,14 +15,14 @@ const Pricing: FC = () => {
       }
     } catch (error) {
       console.error('Error opening individual project payment link:', error);
-      window.location.href = 'https://rzp.io/rzp/qvXdBmUD ';
+      window.location.href = 'https://rzp.io/rzp/individual-devops-project';
     }
   };
 
   // Separate function for complete series
   const handleCompleteSeries = () => {
     try {
-      const paymentUrl = 'https://rzp.io/rzp/bwEIjuL'; // Complete series payment URL
+      const paymentUrl = 'https://rzp.io/rzp/devops-project-series'; // Complete series payment URL
       const newWindow = window.open(paymentUrl, '_blank');
       
       if (!newWindow) {
@@ -30,7 +30,7 @@ const Pricing: FC = () => {
       }
     } catch (error) {
       console.error('Error opening complete series payment link:', error);
-      window.location.href = 'https://rzp.io/rzp/bwEIjuL';
+      window.location.href = 'https://rzp.io/rzp/devops-project-series';
     }
   };
 
