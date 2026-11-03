@@ -30,11 +30,12 @@ export function CaseStudy() {
   useScrollReveal(ref, { selector: `.${"reveal"}`, y: 24, start: "top 80%" });
   usePointerTilt(diagramRef, { maxTilt: 4, liftScale: 1.012 });
 
+  const byPhase = (p: string) => featured.steps.filter((s) => s.phase === p).map((s) => s.text);
   const panelContent: Record<TabId, string[]> = {
-    overview: [featured.challenge],
-    architecture: featured.architecture,
-    implementation: featured.implementation,
-    operations: featured.operations,
+    overview: [featured.failure],
+    architecture: featured.stack,
+    implementation: byPhase("build"),
+    operations: [...byPhase("break"), ...byPhase("recover")],
   };
 
   return (
@@ -44,7 +45,7 @@ export function CaseStudy() {
           <div className={`${styles.content} reveal`}>
             <span className="eyebrow">Project 01 · Case Study</span>
             <h2 className={styles.title}>{featured.title}</h2>
-            <p className="lead">{featured.description}</p>
+            <p className="lead">{featured.summary}</p>
 
             <div className={styles.tabs} role="tablist" aria-label="Case study detail">
               {tabs.map((tab) => (

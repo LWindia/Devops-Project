@@ -4,7 +4,8 @@ import { ScrollProgress } from "./components/ScrollProgress/ScrollProgress";
 import { Hero } from "./components/Hero/Hero";
 import { Philosophy } from "./components/Philosophy/Philosophy";
 import { ProjectIndex } from "./components/ProjectIndex/ProjectIndex";
-import { CaseStudy } from "./components/CaseStudy/CaseStudy";
+// CaseStudy (old "Project 01" deep-dive) is hidden — the Projects section now covers all five in detail.
+// import { CaseStudy } from "./components/CaseStudy/CaseStudy";
 // "Infrastructure in Motion" (PipelineFlow) is hidden for now. To restore it, re-add this
 // import and <PipelineFlow /> after <CaseStudy />, and the "Pipeline" link in content/navigation.ts.
 // import { PipelineFlow } from "./components/PipelineFlow/PipelineFlow";
@@ -45,7 +46,6 @@ function App() {
         <Hero />
         <Philosophy />
         <ProjectIndex />
-        <CaseStudy />
         <TerminalLab />
         <Capabilities />
         <Roadmap />

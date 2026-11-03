@@ -6,7 +6,7 @@ import { registerLinkProps } from "../../content/links";
 import styles from "./Hero.module.css";
 
 const stats = [
-  { value: "10+", label: "Real-world projects" },
+  { value: "5", label: "End-to-end projects" },
   { value: "20+", label: "DevOps tools" },
   { value: "100%", label: "Hands-on learning" },
   { value: "Production", label: "Ready skills" },
