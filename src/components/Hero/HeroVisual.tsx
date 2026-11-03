@@ -64,7 +64,10 @@ export function HeroVisual({ pointerRootRef }: HeroVisualProps) {
       {/* Hero image — replaces the SVG tower scene */}
       <img
         ref={imageRef}
-        src="/hero.png"
+        src="/hero.webp"
+        width={1536}
+        height={1024}
+        fetchPriority="high"
         alt=""
         className={styles.heroImage}
         draggable={false}

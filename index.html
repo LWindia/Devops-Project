@@ -3,22 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DevOps Project Series — a hands-on, production-oriented engineering course. Build real cloud infrastructure, CI/CD pipelines, Kubernetes deployments and observability systems." />
-    <title>DevOps Project Series — Build Production Systems</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4T3HGHBVM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q4T3HGHBVM');
+    </script>
+
+    <!-- Primary SEO -->
+    <title>5 End-to-End DevOps Projects | DevOps Project Series by LinuxWorld</title>
+    <meta
+      name="description"
+      content="Build, break and recover 5 production-grade DevOps projects: zero-downtime releases, Terraform on AWS, Kubernetes, observability &amp; SLOs, and disaster recovery."
+    />
+    <meta
+      name="keywords"
+      content="DevOps projects, DevOps course, end-to-end DevOps, Kubernetes, Terraform, AWS, GitLab CI/CD, Helm, Prometheus, Grafana, SRE, disaster recovery, LinuxWorld"
+    />
+    <meta name="author" content="LinuxWorld" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="theme-color" content="#0a0c10" />
+
+    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DevOps Project Series by LinuxWorld" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="5 Advanced, End-to-End DevOps Projects — DevOps Project Series" />
+    <meta
+      property="og:description"
+      content="Build, break and recover real production systems on AWS, Kubernetes, Terraform and GitLab CI/CD. A hands-on DevOps project series by LinuxWorld."
+    />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DevOps Project Series by LinuxWorld — 5 advanced, end-to-end DevOps projects" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="5 Advanced, End-to-End DevOps Projects — DevOps Project Series" />
+    <meta
+      name="twitter:description"
+      content="Build, break and recover real production systems on AWS, Kubernetes, Terraform and GitLab CI/CD."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
+
+    <!-- Icons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
-    <meta name="theme-color" content="#0a0c10" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "%SITE_URL%/#organization",
+            "name": "LinuxWorld",
+            "url": "%SITE_URL%/",
+            "logo": "%SITE_URL%/brand/icon-512.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "name": "DevOps Project Series",
+            "url": "%SITE_URL%/",
+            "publisher": { "@id": "%SITE_URL%/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Course",
+            "name": "DevOps Project Series — 5 Advanced End-to-End DevOps Projects",
+            "description": "A hands-on series of five production-grade DevOps projects: zero-downtime deployment and release management, multi-environment cloud infrastructure with Terraform, Kubernetes production operations and capacity engineering, observability with SLOs and incident response, and automated disaster recovery.",
+            "url": "%SITE_URL%/",
+            "image": "%SITE_URL%/og-image.jpg",
+            "inLanguage": "en",
+            "educationalLevel": "Advanced",
+            "teaches": [
+              "Zero-Downtime Production Deployment and Release Management",
+              "Multi-Environment Cloud Infrastructure Provisioning and Governance",
+              "Kubernetes Production Operations and Capacity Engineering",
+              "Production Observability, SLO Monitoring and Incident Response",
+              "Automated Disaster Recovery and Verified Data Restoration"
+            ],
+            "provider": { "@id": "%SITE_URL%/#organization" }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="/hero.webp" type="image/webp" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Readable summary for crawlers and visitors without JavaScript -->
+    <noscript>
+      <main style="max-width:720px;margin:4rem auto;padding:0 1.25rem;font-family:Inter,system-ui,sans-serif;color:#f3f5f8;background:#0a0c10;line-height:1.6">
+        <h1>DevOps Project Series by LinuxWorld</h1>
+        <p>Five advanced, end-to-end DevOps projects. Every project is built, deliberately broken, and recovered — the way production systems are really run.</p>
+        <ol>
+          <li>Zero-Downtime Production Deployment and Release Management</li>
+          <li>Multi-Environment Cloud Infrastructure Provisioning and Governance</li>
+          <li>Kubernetes Production Operations and Capacity Engineering</li>
+          <li>Production Observability, SLO Monitoring and Incident Response</li>
+          <li>Automated Disaster Recovery and Verified Data Restoration</li>
+        </ol>
+        <p><a style="color:#ff8a3d" href="https://rzp.io/rzp/devops-project-nov">Register now</a> · <a style="color:#ff8a3d" href="https://wa.me/919351009002">Ask a question on WhatsApp</a></p>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

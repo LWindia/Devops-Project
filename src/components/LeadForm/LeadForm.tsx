@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import { LEAD_FORM_ENDPOINT, OPEN_LEAD_FORM, registerLinkProps, WHATSAPP_URL } from "../../content/links";
+import { track } from "../../lib/analytics";
 import styles from "./LeadForm.module.css";
 
 /** Auto-open after this delay, or once the visitor scrolls this far — whichever comes first. */
@@ -58,6 +59,7 @@ export function LeadForm() {
   const show = useCallback(() => {
     lastFocusRef.current = document.activeElement as HTMLElement | null;
     setOpen(true);
+    track("lead_form_open");
   }, []);
 
   const close = useCallback(() => {
@@ -162,6 +164,7 @@ export function LeadForm() {
       await fetch(LEAD_FORM_ENDPOINT, { method: "POST", mode: "no-cors", body });
       setStatus("done");
       writeStore({ submitted: true });
+      track("generate_lead", { method: "popup_form" });
     } catch {
       setStatus("error");
     }
