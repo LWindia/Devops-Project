@@ -3,16 +3,21 @@ import react from "@vitejs/plugin-react";
 
 declare const process: { env: Record<string, string | undefined> };
 
+/** Public production URL of the site. */
+const PRODUCTION_URL = "https://devopsprojects.hash13.com";
+
 /**
  * The site's public URL, used for canonical links, social previews, structured
  * data and the sitemap. Resolved at build time:
- *   1. SITE_URL env var, if set (e.g. https://devops.lwindia.com)
- *   2. Vercel's production domain (VERCEL_PROJECT_PRODUCTION_URL), set automatically on Vercel
- * If neither is available, tags that need an absolute URL are left out.
+ *   1. SITE_URL env var, if set (overrides everything)
+ *   2. PRODUCTION_URL above
+ *   3. Vercel's production domain (VERCEL_PROJECT_PRODUCTION_URL)
+ * If none is available, tags that need an absolute URL are left out.
  */
 function resolveSiteUrl(): string {
   const explicit = process.env.SITE_URL?.trim();
   if (explicit) return explicit.replace(/\/+$/, "");
+  if (PRODUCTION_URL) return PRODUCTION_URL.replace(/\/+$/, "");
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
   if (vercel) return `https://${vercel.replace(/\/+$/, "")}`;
   return "";
