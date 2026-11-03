@@ -1,0 +1,242 @@
+.title {
+  font-size: var(--fs-h2);
+  max-width: 18ch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: clamp(1rem, 0.8rem + 1vw, 2.5rem);
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--accent);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-panel);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.connector {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(var(--border-soft), transparent);
+  margin-block: 0.75rem;
+  min-height: 2rem;
+}
+
+.body {
+  padding-bottom: clamp(2rem, 1.6rem + 2vw, 3.5rem);
+  border-bottom: 1px solid var(--border-faint);
+  margin-bottom: clamp(2rem, 1.6rem + 2vw, 3.5rem);
+}
+
+.row:last-child .body {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.rowHead {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  color: inherit;
+}
+
+.titleBlock {
+  flex-shrink: 0;
+  max-width: 60%;
+}
+
+.headRule {
+  flex: 1;
+  height: 1px;
+  background: var(--border-faint);
+  min-width: 2rem;
+  transition: background var(--duration-fast) var(--ease-cinematic);
+}
+
+.rowHead:hover .headRule {
+  background: var(--border-soft);
+}
+
+.domain {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.rowTitle {
+  font-size: var(--fs-h3);
+  margin-top: 0.4rem;
+}
+
+.toggle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-cinematic),
+    border-color var(--duration-fast) var(--ease-cinematic);
+}
+
+.toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.toggleOpen {
+  transform: rotate(180deg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailReversed {
+  flex-direction: column-reverse;
+}
+
+.description {
+  margin-top: 1rem;
+  max-width: 62ch;
+}
+
+.detailReversed .description {
+  margin-top: 0.75rem;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.techLead {
+  margin-top: 1rem;
+}
+
+.techLead li {
+  font-size: 0.85rem;
+  padding: 0.5em 1.1em;
+  color: var(--accent-bright);
+  border-color: var(--accent-dim);
+}
+
+.tech li {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  padding: 0.35em 0.8em;
+  border: 1px solid var(--border-faint);
+  border-radius: 999px;
+  color: var(--text-secondary);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-mid) var(--ease-cinematic);
+}
+
+.panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  padding-top: 1.75rem;
+}
+
+.panelCol h4 {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-bright);
+  margin-bottom: 0.75rem;
+}
+
+.panelCol p {
+  font-size: 0.92rem;
+}
+
+.panelCol ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.panelCol li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.panelCol li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+@media (max-width: 720px) {
+  .row {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .titleBlock {
+    max-width: none;
+    flex: 1;
+  }
+
+  .headRule {
+    display: none;
+  }
+
+  .panelInner {
+    grid-template-columns: 1fr;
+  }
+}

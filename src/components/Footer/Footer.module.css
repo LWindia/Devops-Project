@@ -1,0 +1,168 @@
+.footer {
+  position: relative;
+  border-top: 1px solid var(--border-faint);
+  padding-block: clamp(2.5rem, 2rem + 2vw, 3.75rem) 1.75rem;
+  background: var(--bg-void);
+}
+
+/* Thin brand-red hairline across the top edge */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: min(420px, 60%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(232, 36, 42, 0.7), transparent);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto auto;
+  align-items: center;
+  gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.tagline {
+  max-width: 30ch;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--border-soft);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-tertiary);
+}
+
+.tagline strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.links a,
+.wa {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast) var(--ease-cinematic);
+}
+
+.callback {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-cinematic);
+}
+
+.links a:hover,
+.wa:hover,
+.callback:hover {
+  color: var(--text-primary);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.register {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent-bright);
+  transition: color var(--duration-fast) var(--ease-cinematic);
+}
+
+.register:hover {
+  color: var(--accent);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-faint);
+}
+
+.copy {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 1023.98px) {
+  .top {
+    grid-template-columns: 1fr auto;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tagline {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .logo {
+    height: 56px;
+  }
+
+  .contact {
+    align-items: flex-start;
+  }
+
+  .bottom {
+    flex-direction: column;
+  }
+
+  /* Leave room for the floating WhatsApp button */
+  .footer {
+    padding-bottom: 6rem;
+  }
+}

@@ -1,0 +1,100 @@
+.wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 1.5rem + 2vw, 4rem);
+  align-items: start;
+}
+
+.title {
+  font-size: var(--fs-h2);
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--border-faint);
+  padding-bottom: 0.25rem;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 0.88rem;
+  padding: 0.6em 0.2em;
+  position: relative;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.3rem;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform var(--duration-fast) var(--ease-cinematic);
+}
+
+.tabActive {
+  color: var(--text-primary);
+}
+
+.tabActive::after {
+  transform: scaleX(1);
+}
+
+.panel {
+  margin-top: 1.5rem;
+}
+
+.panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.panel li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.diagramWrap {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-faint);
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+}
+
+.diagramLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 980px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}

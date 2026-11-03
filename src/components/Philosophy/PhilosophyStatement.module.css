@@ -1,0 +1,109 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 920px;
+}
+
+.eyebrow {
+  margin-bottom: 0.25rem;
+}
+
+.statement {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.12;
+}
+
+.line {
+  display: block;
+  margin: 0;
+  color: inherit;
+}
+
+.struck {
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-tertiary);
+  text-decoration-thickness: 2px;
+}
+
+/* --- Verb scroller (codepen.io/jh3y/pen/MYgaaem, adapted) ----------------
+   Default (reduced motion, <768px, no JS): the lead-in and verbs stack in
+   normal flow and every verb is lit. */
+.scroller {
+  display: flex;
+  flex-direction: column;
+}
+
+.leadIn {
+  margin: 0;
+  color: inherit;
+}
+
+.leadLine {
+  display: inline;
+}
+
+.phases {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.45em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --lit: 1 lit, 0 dim. Only PhilosophyStatement.tsx's ScrollTrigger tweens
+   it. Lit colour steps from the accent toward amber across the four verbs;
+   dim is the same tertiary grey as "run commands" (≈4:1 on --bg-base, above
+   the 3:1 large-text minimum, so dim verbs stay readable). */
+.phase {
+  --lit: 1;
+  --tone: color-mix(in oklch, var(--accent), var(--signal-amber) calc(var(--i, 0) * 18%));
+  color: color-mix(in oklch, var(--tone) calc(var(--lit) * 100%), var(--text-tertiary));
+}
+
+/* ≥768px: lead-in on the left, verbs stacked on the right. The lead-in is
+   sticky so its second line sits on the viewport centre; the verbs start
+   level with that line (margin-top: 1lh) and scroll up past it. The sticky
+   range ends exactly when the last verb is level with it. */
+@media (min-width: 768px) {
+  .scroller {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.3em;
+  }
+
+  .leadIn {
+    position: sticky;
+    top: calc(50vh - 1.5lh);
+    flex-shrink: 0;
+  }
+
+  .leadLine {
+    display: block;
+  }
+
+  .phases {
+    flex-direction: column;
+    margin-top: 1lh;
+  }
+}
+
+.sub {
+  font-size: var(--fs-lead);
+  max-width: 60ch;
+}
+
+@media (max-width: 720px) {
+  .statement {
+    font-size: clamp(1.9rem, 1.5rem + 3vw, 3rem);
+  }
+}

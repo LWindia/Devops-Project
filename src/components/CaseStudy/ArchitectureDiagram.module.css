@@ -1,0 +1,39 @@
+.diagram {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.edge {
+  stroke: var(--accent-dim);
+  stroke-width: 1.5;
+}
+
+.nodeHalo {
+  fill: var(--accent-wash);
+}
+
+.node {
+  fill: var(--accent);
+  stroke: var(--bg-panel);
+  stroke-width: 2;
+}
+
+.label {
+  fill: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+
+.nodeGroupActive,
+.nodeGroupDimmed {
+  transition: opacity var(--duration-mid) var(--ease-cinematic);
+}
+
+.nodeGroupDimmed {
+  opacity: 0.3;
+}
+
+.nodeGroupDimmed .nodeHalo {
+  fill: transparent;
+}

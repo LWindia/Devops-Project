@@ -1,0 +1,466 @@
+/* ═══ Section ═══════════════════════════════════════════════════════════ */
+.section {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  padding-block: var(--space-section);
+}
+
+.aura {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 45% 35% at 85% 10%, rgba(255, 106, 26, 0.08), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(77, 140, 255, 0.04), transparent 70%),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.045) 1px, transparent 0) 0 0 / 26px 26px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+}
+
+/* ═══ Header ════════════════════════════════════════════════════════════ */
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+  margin-bottom: clamp(2.5rem, 2rem + 2.5vw, 4.25rem);
+}
+
+.headMain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 1.2rem + 2.6vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.accent {
+  background: linear-gradient(95deg, var(--accent), var(--signal-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.facts {
+  display: flex;
+  margin: 0;
+}
+
+.facts > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0 clamp(0.9rem, 0.5rem + 1vw, 1.5rem);
+  border-left: 1px solid var(--border-soft);
+}
+
+.facts > div:first-child {
+  border-left: 0;
+}
+
+.facts > div:last-child {
+  padding-right: 0;
+}
+
+.facts dt {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.facts dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* ═══ Route map ═════════════════════════════════════════════════════════ */
+.map {
+  --p: 0;
+  --node: 22px;
+  --gap: clamp(0.75rem, 0.5rem + 0.8vw, 1.25rem);
+  position: relative;
+}
+
+/* Horizontal route through the phase nodes */
+.route {
+  position: absolute;
+  left: calc(var(--node) / 2);
+  right: 0;
+  top: calc(var(--node) / 2);
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0 6px, transparent 6px 12px);
+}
+
+.routeFill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--signal-amber));
+  box-shadow: 0 0 12px rgba(255, 106, 26, 0.6);
+  transform-origin: left center;
+  transform: scaleX(var(--p));
+}
+
+/* Travelling light at the head of the fill */
+.routeFill::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 106, 26, 0.35), 0 0 18px 4px rgba(255, 106, 26, 0.7);
+  transform: translateY(-50%) scaleX(calc(1 / max(var(--p), 0.001)));
+  opacity: calc(var(--p) * 40);
+}
+
+.phases {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--phases, 4), minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  min-width: 0;
+}
+
+/* Phase header */
+.phaseHead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  row-gap: 0.3rem;
+  align-items: center;
+  padding-bottom: 0.6rem;
+}
+
+.node {
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-base);
+  transition: border-color 0.5s var(--ease-cinematic), box-shadow 0.5s var(--ease-cinematic);
+}
+
+.node > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  transition: background 0.5s var(--ease-cinematic), transform 0.5s var(--ease-cinematic);
+}
+
+.phase[data-reached="true"] .node {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 106, 26, 0.12);
+}
+
+.phase[data-reached="true"] .node > span {
+  background: var(--accent-bright);
+}
+
+.phase[data-current="true"] .node {
+  box-shadow: 0 0 0 5px rgba(255, 106, 26, 0.16), 0 0 22px rgba(255, 106, 26, 0.55);
+}
+
+.phase[data-current="true"] .node > span {
+  transform: scale(1.15);
+}
+
+.phaseNum {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  transition: color 0.5s var(--ease-cinematic);
+}
+
+.phase[data-reached="true"] .phaseNum {
+  color: var(--accent-bright);
+}
+
+.phaseName {
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.phaseTag {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.15rem 1.15rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)),
+    var(--bg-panel);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  /* Unreached phases sit dimmed (filter, so it never fights the reveal's opacity) */
+  filter: grayscale(0.7) brightness(0.62);
+  transition:
+    filter 0.6s var(--ease-cinematic),
+    transform 0.35s var(--ease-cinematic),
+    border-color 0.35s var(--ease-cinematic),
+    box-shadow 0.35s var(--ease-cinematic);
+}
+
+.phase[data-reached="true"] .step {
+  filter: none;
+}
+
+.step:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 106, 26, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 40px -24px rgba(255, 106, 26, 0.35);
+}
+
+.stepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-bright);
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(255, 106, 26, 0.1);
+  border: 1px solid rgba(255, 106, 26, 0.2);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.stepSummary {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-faint);
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--text-tertiary);
+}
+
+/* Capstone card */
+.step[data-capstone="true"] {
+  border-color: transparent;
+  background:
+    linear-gradient(160deg, rgba(255, 106, 26, 0.16), rgba(255, 106, 26, 0.02) 55%),
+    var(--bg-panel-raised);
+}
+
+.step[data-capstone="true"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, var(--accent), rgba(255, 184, 77, 0.5) 40%, rgba(255, 255, 255, 0.06) 75%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+.phase[data-reached="true"] .step[data-capstone="true"] {
+  box-shadow: 0 24px 50px -26px rgba(255, 106, 26, 0.5);
+}
+
+.badge {
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.step[data-capstone="true"] .chips li {
+  border-color: rgba(255, 106, 26, 0.35);
+  color: var(--accent-bright);
+}
+
+/* ═══ Responsive ════════════════════════════════════════════════════════ */
+@media (max-width: 1099.98px) {
+  .phases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+
+  /* Two rows of phases — a single horizontal route no longer fits */
+  .route {
+    display: none;
+  }
+}
+
+@media (max-width: 899.98px) {
+  .head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .headSide {
+    align-items: flex-start;
+  }
+}
+
+/* Mobile: one column, the route runs down the left edge */
+@media (max-width: 639.98px) {
+  .map {
+    padding-left: calc(var(--node) + 1rem);
+  }
+
+  .route {
+    display: block;
+    left: calc(var(--node) / 2);
+    right: auto;
+    top: calc(var(--node) / 2);
+    bottom: 0;
+    width: 2px;
+    height: auto;
+    margin: 0 0 0 -1px;
+    background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0 6px, transparent 6px 12px);
+  }
+
+  .routeFill {
+    transform-origin: center top;
+    transform: scaleY(var(--p));
+  }
+
+  .routeFill::after {
+    display: none;
+  }
+
+  .phases {
+    grid-template-columns: 1fr;
+  }
+
+  .phaseHead {
+    position: relative;
+  }
+
+  .node {
+    position: absolute;
+    left: calc(-1 * (var(--node) + 1rem));
+    top: 0;
+  }
+
+  .phaseNum {
+    margin-top: 0;
+    line-height: var(--node);
+  }
+
+  .phaseName {
+    margin-top: 0.3rem;
+  }
+
+  .facts > div {
+    padding: 0 1rem;
+  }
+
+  .facts > div:first-child {
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .node,
+  .node > span {
+    transition: none;
+  }
+
+  .routeFill::after {
+    display: none;
+  }
+}

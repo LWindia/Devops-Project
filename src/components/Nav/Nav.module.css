@@ -1,0 +1,290 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid transparent;
+  transition: background var(--duration-fast) var(--ease-cinematic),
+    border-color var(--duration-fast) var(--ease-cinematic),
+    padding-block var(--duration-fast) var(--ease-cinematic);
+}
+
+.scrolled {
+  background: rgba(7, 8, 11, 0.82);
+  backdrop-filter: blur(14px);
+  border-color: var(--border-faint);
+  padding-block: 0.85rem;
+}
+
+.inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  white-space: nowrap;
+}
+
+.mark {
+  height: 26px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.divider {
+  width: 1px;
+  height: 26px;
+  background: var(--border-soft);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.1;
+}
+
+.brandName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brandBy {
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.links a {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) var(--ease-cinematic);
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-fast) var(--ease-cinematic);
+}
+
+.links a:hover {
+  color: var(--text-primary);
+}
+
+.links a:active {
+  color: var(--accent-bright);
+}
+
+.links a.active {
+  color: var(--text-primary);
+}
+
+.links a.active::after {
+  transform: scaleX(1);
+}
+
+.cta {
+  padding: 0.65em 1.3em;
+  font-size: 0.88rem;
+}
+
+.ctaShort {
+  display: none;
+}
+
+.toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.4rem;
+}
+
+.toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+}
+
+.mobilePanel {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(5, 6, 8, 0.6);
+  backdrop-filter: blur(2px);
+  border: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-mid) var(--ease-cinematic);
+}
+
+@media (max-width: 860px) {
+  .links {
+    display: none;
+  }
+
+  /* Compact register button stays visible next to the menu toggle */
+  .inner {
+    gap: 0.75rem;
+  }
+
+  .inner .cta {
+    margin-left: auto;
+    padding: 0.55em 1em;
+    font-size: 0.82rem;
+  }
+
+  .ctaFull {
+    display: none;
+  }
+
+  .ctaShort {
+    display: inline;
+  }
+
+  .inner .cta :global(.btn-icon) {
+    display: none;
+  }
+
+  .toggle {
+    display: flex;
+  }
+
+  .mobilePanel {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-rows: 0fr;
+    background: var(--bg-base);
+    border-bottom: 1px solid transparent;
+    transition: grid-template-rows var(--duration-mid) var(--ease-cinematic),
+      border-color var(--duration-mid) var(--ease-cinematic);
+  }
+
+  .mobilePanel[data-open="true"] {
+    grid-template-rows: 1fr;
+    border-color: var(--border-faint);
+  }
+
+  /* Closed: collapse the padding too, and keep links out of the tab order */
+  .mobilePanel:not([data-open="true"]) .mobileMenu {
+    padding-block: 0;
+    visibility: hidden;
+  }
+
+  .mobileMenu {
+    overflow: hidden;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem var(--space-gutter) 2rem;
+  }
+
+  .mobileMenu a {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast) var(--ease-cinematic);
+  }
+
+  .mobileMenu a.active {
+    color: var(--accent-bright);
+  }
+
+  .mobileMenu a:active {
+    opacity: 0.7;
+  }
+
+  .mobileMenu :global(.btn) {
+    margin-top: 0.5rem;
+    align-self: stretch;
+    color: var(--text-on-accent);
+  }
+
+  .backdrop[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Narrow phones: keep logo, register and menu toggle on one line */
+@media (max-width: 420px) {
+  .brand {
+    min-width: 0;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brand .mark {
+    height: 21px;
+  }
+
+  .brand .divider {
+    display: none;
+  }
+
+  .brandName {
+    font-size: 0.86rem;
+  }
+
+  .brandBy {
+    font-size: 0.55rem;
+  }
+
+  .toggle {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .brand .divider,
+  .brandText {
+    display: none;
+  }
+}

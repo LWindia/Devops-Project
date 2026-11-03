@@ -1,0 +1,133 @@
+.fab {
+  --wa: #25d366;
+  position: fixed;
+  right: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+  bottom: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #fff;
+  box-shadow:
+    0 10px 30px -8px rgba(37, 211, 102, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition: transform var(--duration-fast) var(--ease-cinematic), box-shadow var(--duration-fast) var(--ease-cinematic);
+}
+
+/* Soft pulse ring to draw the eye without being noisy */
+.bubble::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--wa);
+  opacity: 0;
+  animation: wa-pulse 3.2s var(--ease-cinematic) 2s infinite;
+  pointer-events: none;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.fab:hover .bubble,
+.fab:focus-visible .bubble {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 34px -8px rgba(37, 211, 102, 0.7);
+}
+
+.fab:active .bubble {
+  transform: scale(0.96);
+}
+
+.fab:focus-visible {
+  outline: none;
+}
+
+.fab:focus-visible .bubble {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
+/* "Have a question?" tag */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  background: rgba(16, 19, 26, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease-cinematic), transform 0.35s var(--ease-cinematic);
+}
+
+.label strong {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.label span {
+  font-size: 0.75rem;
+  color: var(--wa);
+}
+
+.fab[data-hint="true"] .label,
+.fab:hover .label,
+.fab:focus-visible .label {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes wa-pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(1.55); }
+}
+
+@media (max-width: 640px) {
+  .bubble {
+    width: 52px;
+    height: 52px;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble::after {
+    animation: none;
+  }
+
+  .bubble,
+  .label {
+    transition: none;
+  }
+}
+
+@media print {
+  .fab {
+    display: none;
+  }
+}

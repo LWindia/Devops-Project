@@ -1,0 +1,277 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(4, 5, 7, 0.72);
+  backdrop-filter: blur(6px);
+  animation: fade 0.3s var(--ease-cinematic) both;
+  overflow-y: auto;
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 440px);
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  background:
+    radial-gradient(120% 60% at 100% 0%, rgba(255, 106, 26, 0.12), transparent 60%),
+    linear-gradient(180deg, #131720, #0d1016);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  animation: rise 0.45s var(--ease-cinematic) both;
+}
+
+.close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border-faint);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  transition: color var(--duration-fast), border-color var(--duration-fast), background var(--duration-fast);
+}
+
+.close:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+}
+
+.mark {
+  height: 18px;
+  width: auto;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.title {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  padding-right: 2rem;
+}
+
+.desc {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.field input,
+.phoneRow {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: rgba(0, 0, 0, 0.3);
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.field input {
+  padding: 0.8rem 0.95rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.field input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.field > input:focus,
+.phoneRow:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255, 106, 26, 0.18);
+}
+
+.field > input[aria-invalid="true"],
+.phoneRow[data-invalid="true"] {
+  border-color: var(--signal-red);
+}
+
+.phoneRow {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.phoneRow input {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.phoneRow .code {
+  flex: 0 0 4.4rem;
+  width: 4.4rem;
+  text-align: center;
+  border-right: 1px solid var(--border-soft);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  font-size: 0.76rem;
+  color: var(--signal-red);
+}
+
+.formError {
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 93, 93, 0.35);
+  background: rgba(255, 93, 93, 0.08);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+}
+
+.formError a {
+  color: var(--accent-bright);
+  text-decoration: underline;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding-block: 0.95em;
+}
+
+.submit:disabled {
+  opacity: 0.75;
+  cursor: progress;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: spin 0.7s linear infinite;
+}
+
+.privacy {
+  font-size: 0.72rem;
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+/* Visually hidden honeypot */
+.hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+
+/* Success state */
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-block: 0.5rem;
+}
+
+.success .title {
+  padding-right: 0;
+  margin-top: 1rem;
+}
+
+.check {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: var(--signal-green);
+  background: rgba(61, 220, 132, 0.1);
+  border: 1px solid rgba(61, 220, 132, 0.35);
+  animation: pop 0.5s var(--ease-cinematic) both;
+}
+
+.check svg {
+  width: 30px;
+  height: 30px;
+}
+
+.successActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.6); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .dialog,
+  .check {
+    animation: none;
+  }
+}

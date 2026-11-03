@@ -1,0 +1,38 @@
+.visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Atmospheric glow behind the image. Scroll exit timeline writes opacity. */
+.glow {
+  position: absolute;
+  inset: 8% 12%;
+  background: radial-gradient(
+    50% 50% at 50% 62%,
+    rgba(255, 106, 26, 0.22) 0%,
+    rgba(255, 106, 26, 0.05) 55%,
+    transparent 80%
+  );
+  filter: blur(30px);
+  z-index: 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Hero image — a soft elliptical vignette dissolves every edge into the page,
+   so the illustration reads as part of the scene rather than a pasted box. */
+.heroImage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 55%, transparent 100%);
+  will-change: transform;
+  user-select: none;
+  pointer-events: none;
+}
